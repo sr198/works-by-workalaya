@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.nx/
+.env
+.env.local
+*.log
+coverage/
+.vscode/
+.idea/
+*.tsbuildinfo

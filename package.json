@@ -1,0 +1,40 @@
+{
+  "name": "works-by-workalaya",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Works by Workalaya — Service marketplace platform",
+  "scripts": {
+    "build": "nx run-many -t build",
+    "test": "nx run-many -t test",
+    "lint": "nx run-many -t lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:migrate:up": "tsx tools/db/migrate.ts up",
+    "db:migrate:down": "tsx tools/db/migrate.ts down",
+    "graph": "nx graph"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "devDependencies": {
+    "@nx/eslint": "^22.5.1",
+    "@nx/eslint-plugin": "^22.5.1",
+    "@nx/js": "^22.5.1",
+    "@nx/node": "^22.5.1",
+    "@nx/vite": "^22.5.1",
+    "@nx/workspace": "^22.5.1",
+    "@types/node": "^25.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.0",
+    "@typescript-eslint/parser": "^8.56.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.0.0",
+    "nx": "^22.5.1",
+    "prettier": "^3.8.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.0",
+    "vitest": "^4.0.18"
+  }
+}

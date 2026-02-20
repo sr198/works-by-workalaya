@@ -1,0 +1,18 @@
+{
+  "name": "testing",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/testing/src",
+  "projectType": "library",
+  "tags": ["scope:testing"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/testing",
+        "tsConfig": "libs/testing/tsconfig.lib.json",
+        "main": "libs/testing/src/index.ts"
+      }
+    }
+  }
+}
