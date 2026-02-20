@@ -2,6 +2,7 @@
   "name": "works-by-workalaya",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Works by Workalaya — Service marketplace platform",
   "scripts": {
     "build": "nx run-many -t build",
