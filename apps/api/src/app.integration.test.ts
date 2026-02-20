@@ -22,6 +22,7 @@ function makeDeps(pgOk = true, redisOk = true): AppDependencies {
       CORS_ORIGIN: '*',
       RATE_LIMIT_MAX: 1000,
       RATE_LIMIT_WINDOW_MS: 60_000,
+      METRICS_ENABLED: false,
       NODE_ENV: 'test',
       LOG_LEVEL: 'silent',
     },

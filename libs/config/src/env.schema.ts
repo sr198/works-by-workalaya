@@ -29,6 +29,10 @@ export const envSchema = z.object({
   RATE_LIMIT_MAX: z.coerce.number().int().min(1).default(100),
   RATE_LIMIT_WINDOW_MS: z.coerce.number().int().min(1000).default(60_000),
 
+  // Observability
+  METRICS_ENABLED: z.coerce.boolean().default(true),
+  METRICS_TOKEN: z.string().optional(),
+
   // Environment
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']).default('info'),

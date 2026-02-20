@@ -13,6 +13,14 @@
         "tsConfig": "libs/testing/tsconfig.lib.json",
         "main": "libs/testing/src/index.ts"
       }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/coverage/libs/testing"],
+      "options": {
+        "command": "vitest run --config libs/testing/vitest.config.ts",
+        "cwd": "{workspaceRoot}"
+      }
     }
   }
 }

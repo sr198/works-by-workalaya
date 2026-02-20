@@ -14,11 +14,10 @@ describe('UserId', () => {
     expect(ids.size).toBe(100);
   });
 
-  it('is time-sortable', () => {
+  it('is time-sortable by embedded timestamp', () => {
     const id1 = UserId.generate();
     const id2 = UserId.generate();
-    // Lexicographic sort of UUIDv7 strings preserves time order
-    expect(id1.toString() <= id2.toString()).toBe(true);
+    expect(id1.timestamp.getTime()).toBeLessThanOrEqual(id2.timestamp.getTime());
   });
 
   it('creates from valid UUIDv7 string', () => {

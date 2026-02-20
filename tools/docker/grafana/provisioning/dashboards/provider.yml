@@ -1,0 +1,11 @@
+apiVersion: 1
+
+providers:
+  - name: 'workalaya'
+    orgId: 1
+    folder: 'Workalaya'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 30
+    options:
+      path: /var/lib/grafana/dashboards
