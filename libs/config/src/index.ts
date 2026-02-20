@@ -1,2 +1,2 @@
-// Config - Shared configuration schemas and feature flags
-export {};
+export { envSchema, loadEnv, getEnv } from './env.schema';
+export type { EnvConfig } from './env.schema';

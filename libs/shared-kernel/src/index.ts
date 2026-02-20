@@ -17,3 +17,11 @@ export type { Command, CommandHandler, CommandBus } from './application/command-
 export type { Query, QueryHandler, QueryBus } from './application/query-bus';
 export type { UnitOfWork, TransactionContext } from './application/unit-of-work';
 export type { EventPublisherPort } from './application/event-publisher.port';
+
+// Infrastructure
+export { PostgresClient } from './infrastructure/postgres-client';
+export type { PostgresConfig } from './infrastructure/postgres-client';
+export { KafkaClient } from './infrastructure/kafka-client';
+export type { KafkaConfig } from './infrastructure/kafka-client';
+export { RedisClient } from './infrastructure/redis-client';
+export type { RedisConfig } from './infrastructure/redis-client';
