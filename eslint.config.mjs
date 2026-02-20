@@ -13,6 +13,10 @@ export default [
   {
     files: ['**/*.ts'],
     rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
       '@nx/enforce-module-boundaries': [
         'error',
         {

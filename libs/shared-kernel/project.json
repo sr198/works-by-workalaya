@@ -15,10 +15,11 @@
       }
     },
     "test": {
-      "executor": "@nx/vite:test",
+      "executor": "nx:run-commands",
       "outputs": ["{workspaceRoot}/coverage/libs/shared-kernel"],
       "options": {
-        "config": "libs/shared-kernel/vitest.config.ts"
+        "command": "vitest run --config libs/shared-kernel/vitest.config.ts",
+        "cwd": "{workspaceRoot}"
       }
     }
   }

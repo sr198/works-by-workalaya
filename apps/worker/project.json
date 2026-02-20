@@ -21,10 +21,11 @@
       }
     },
     "test": {
-      "executor": "@nx/vite:test",
+      "executor": "nx:run-commands",
       "outputs": ["{workspaceRoot}/coverage/apps/worker"],
       "options": {
-        "config": "apps/worker/vitest.config.ts"
+        "command": "vitest run --config apps/worker/vitest.config.ts",
+        "cwd": "{workspaceRoot}"
       }
     }
   }
