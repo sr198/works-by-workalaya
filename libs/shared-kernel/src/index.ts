@@ -1,5 +1,14 @@
 // Domain
 export { Entity, AggregateRoot } from './domain/base-entity';
+export {
+  DomainError,
+  NotFoundError,
+  ConflictError,
+  DomainValidationError,
+  BusinessRuleViolationError,
+  UnauthorizedError,
+  ForbiddenError,
+} from './domain/errors';
 export { DomainEvent } from './domain/domain-event';
 export type { DomainEventProps, EventMetadata, SerializedDomainEvent } from './domain/domain-event';
 export { Ok, Err, ok, err } from './domain/result';
