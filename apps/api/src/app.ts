@@ -9,9 +9,11 @@ import { registerHelmet } from './server/plugins/helmet.plugin';
 import { registerJwt } from './server/plugins/jwt.plugin';
 import { registerRateLimit } from './server/plugins/rate-limit.plugin';
 import { registerSwagger } from './server/plugins/swagger.plugin';
+import { registerMetrics } from './server/plugins/metrics.plugin';
 import { errorHandler } from './server/errors/error-handler';
 import { httpStatusName, type ErrorResponse } from './server/errors/http-errors';
 import { registerHealthRoutes } from './server/routes/health.route';
+import { registerMetricsRoute } from './server/routes/metrics.route';
 
 // Side-effect import: applies module augmentations for Fastify request types
 import './server/types/auth';
@@ -49,8 +51,9 @@ export async function buildApp(deps: AppDependencies): Promise<FastifyInstance> 
   app.setValidatorCompiler(validatorCompiler);
   app.setSerializerCompiler(serializerCompiler);
 
-  // --- Plugins (order matters: context → cors → helmet → auth → rate-limit → docs) ---
+  // --- Plugins (order matters: context → metrics → cors → helmet → auth → rate-limit → docs) ---
   await app.register(registerRequestContext);
+  await app.register(registerMetrics);
   await registerCors(app, config);
   await registerHelmet(app, config);
   await registerJwt(app, config);
@@ -74,6 +77,7 @@ export async function buildApp(deps: AppDependencies): Promise<FastifyInstance> 
 
   // --- Routes ---
   await app.register(registerHealthRoutes, { postgres, redis });
+  await registerMetricsRoute(app, config);
 
   return app;
 }

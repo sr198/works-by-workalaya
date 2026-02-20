@@ -1,0 +1,58 @@
+services:
+  api-blue:
+    image: ${API_IMAGE:-ghcr.io/workalaya/api:latest}
+    container_name: workalaya-api-blue
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+      KAFKA_BROKERS: ${KAFKA_BROKERS}
+      JWT_SECRET: ${JWT_SECRET}
+      API_PORT: 3000
+      METRICS_ENABLED: "true"
+      METRICS_TOKEN: ${METRICS_TOKEN}
+    expose:
+      - "3000"
+    restart: unless-stopped
+
+  api-green:
+    image: ${API_IMAGE:-ghcr.io/workalaya/api:latest}
+    container_name: workalaya-api-green
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+      KAFKA_BROKERS: ${KAFKA_BROKERS}
+      JWT_SECRET: ${JWT_SECRET}
+      API_PORT: 3000
+      METRICS_ENABLED: "true"
+      METRICS_TOKEN: ${METRICS_TOKEN}
+    expose:
+      - "3000"
+    restart: unless-stopped
+
+  worker:
+    image: ${WORKER_IMAGE:-ghcr.io/workalaya/worker:latest}
+    container_name: workalaya-worker
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+      KAFKA_BROKERS: ${KAFKA_BROKERS}
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: workalaya-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api-blue
+      - api-green
+    restart: unless-stopped
+
+# Note: postgres, kafka, redis are managed services in production
+# and are NOT defined here. Connect via DATABASE_URL / REDIS_URL / KAFKA_BROKERS.

@@ -1,0 +1,50 @@
+name: Deploy to Production (Blue-Green)
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: 'Image tag to deploy (e.g. sha-abc1234)'
+        required: true
+        type: string
+
+jobs:
+  blue-green-deploy:
+    name: Blue-Green Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate image tag
+        run: |
+          echo "Deploying image tag: ${{ inputs.image_tag }}"
+
+      # TODO: identify standby colour (check nginx upstream to determine active)
+      - name: Identify standby colour
+        id: colour
+        run: |
+          echo "TODO: determine which of blue/green is currently standby"
+          echo "standby=green" >> "$GITHUB_OUTPUT"
+
+      # TODO: start standby container with new image, wait for health check
+      - name: Start standby (${{ steps.colour.outputs.standby }})
+        run: |
+          echo "TODO: docker compose -f tools/docker/docker-compose.prod.yml up -d api-${{ steps.colour.outputs.standby }}"
+          echo "TODO: wait for /health to return 200"
+
+      # TODO: update nginx upstream to point to standby, reload nginx
+      - name: Switch nginx upstream
+        run: |
+          echo "TODO: sed nginx.conf to activate ${{ steps.colour.outputs.standby }}"
+          echo "TODO: docker compose exec nginx nginx -s reload"
+
+      # TODO: drain old colour (wait for in-flight requests, then stop)
+      - name: Drain old colour
+        run: |
+          echo "TODO: sleep 30 && docker compose stop api-$(opposite of ${{ steps.colour.outputs.standby }})"
+
+      - name: Health check
+        run: |
+          echo "TODO: curl https://api.workalaya.com/health"
