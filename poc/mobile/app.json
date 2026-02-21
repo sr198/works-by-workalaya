@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Voice Booking POC",
+    "slug": "poc-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "platforms": ["android"],
+    "android": {
+      "package": "com.workalaya.poc",
+      "permissions": ["RECORD_AUDIO", "INTERNET"]
+    },
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow Voice Booking to access your microphone for voice input."
+        }
+      ]
+    ]
+  }
+}
