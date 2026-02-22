@@ -25,9 +25,9 @@ def _str(key: str, default: str) -> str:
 
 
 # ── LLM backend ──────────────────────────────────────────────────────────────
-VLLM_BASE_URL: str = _str("VLLM_BASE_URL", "http://localhost:8080/v1")
+VLLM_BASE_URL: str = _str("VLLM_BASE_URL", "http://localhost:8000/v1")
 VLLM_API_KEY: str = _str("VLLM_API_KEY", "not-required")
-LLM_MODEL: str = _str("LLM_MODEL", "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4")
+LLM_MODEL: str = _str("LLM_MODEL", "Qwen/Qwen2.5-7B-Instruct-AWQ")
 LLM_TEMPERATURE: float = _float("LLM_TEMPERATURE", 0.1)
 LLM_MAX_RETRIES: int = _int("LLM_MAX_RETRIES", 2)
 

@@ -3,6 +3,9 @@
  * Imported by both ws-server.ts (standalone) and main.ts (HTTP+WS).
  */
 
+import { readFileSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 import { WebSocket } from "ws";
 import { BookingState, transition } from "./state-machine.js";
 import { getOrCreateSession, updateSession } from "./session-store.js";
@@ -13,7 +16,26 @@ import { buildPrompt } from "./response-builder.js";
 import { createBooking } from "./bookings.js";
 import { prompts } from "./prompts.js";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// ── Registered user profile (mock — single user for POC) ──────────────────────
+interface UserProfile {
+  id: string;
+  name: string;
+  address: string;
+  ward: string;
+  lat: number;
+  lng: number;
+}
+
+const USER_PATH = join(__dirname, "../../data/user.json");
+const USER: UserProfile = JSON.parse(readFileSync(USER_PATH, "utf-8")) as UserProfile;
+
+// ── Constants ─────────────────────────────────────────────────────────────────
+
 const MAX_TURNS = 8;
+
+// ── Entry point ───────────────────────────────────────────────────────────────
 
 export async function handleMessage(
   ws: WebSocket,
@@ -68,6 +90,10 @@ async function handleTranscript(
         await handleExtraction(ws, sessionId, text);
         break;
 
+      case BookingState.ADDRESS_CONFIRM:
+        await handleAddressConfirm(ws, sessionId, text);
+        break;
+
       case BookingState.PROVIDER_SELECTION:
         await handleProviderSelection(ws, sessionId, text);
         break;
@@ -85,6 +111,8 @@ async function handleTranscript(
     send(ws, { type: "ERROR", message: String(err) });
   }
 }
+
+// ── State handlers ─────────────────────────────────────────────────────────────
 
 async function handleExtraction(
   ws: WebSocket,
@@ -119,19 +147,49 @@ async function handleExtraction(
     return;
   }
 
-  await runProviderSelection(ws, sessionId, cleanBooking);
+  // All required fields extracted — confirm the user's registered address
+  await sendAndSpeak(
+    ws,
+    BookingState.ADDRESS_CONFIRM,
+    prompts.addressConfirm(USER.address),
+    {},
+  );
+}
+
+async function handleAddressConfirm(
+  ws: WebSocket,
+  sessionId: string,
+  text: string,
+): Promise<void> {
+  const ctx = getOrCreateSession(sessionId);
+
+  // Reuse the confirm AI endpoint to detect an affirmative response
+  const result = await selectProvider(text, [{ id: "user_addr", name: USER.address }], true);
+
+  // Always use the registered address for provider matching (no geocoding in POC).
+  // If the user indicated a different address, we acknowledge it but proceed with profile coords.
+  const booking = {
+    ...(ctx.booking as Record<string, unknown>),
+    location: USER.address,
+  };
+  updateSession(sessionId, { booking: booking as never });
+
+  await runProviderSelection(ws, sessionId, booking, !result.confirmed);
 }
 
 async function runProviderSelection(
   ws: WebSocket,
   sessionId: string,
   booking: Record<string, unknown>,
+  addressChanged = false,
 ): Promise<void> {
   const candidates = matchProviders({
     serviceType: String(booking["service_type"] ?? "standard"),
     date: String(booking["date"] ?? ""),
     time: String(booking["time"] ?? "09:00"),
     durationHours: Number(booking["duration_hours"] ?? 2),
+    userLat: USER.lat,
+    userLng: USER.lng,
   });
 
   updateSession(sessionId, {
@@ -140,7 +198,13 @@ async function runProviderSelection(
     booking: booking as never,
   });
 
-  const prompt = buildPrompt(BookingState.PROVIDER_SELECTION, { providers: candidates });
+  let prompt = buildPrompt(BookingState.PROVIDER_SELECTION, { providers: candidates });
+
+  // If user didn't confirm their address, prepend a brief acknowledgment
+  if (addressChanged) {
+    prompt = prompts.addressConfirmProceed(USER.address) + " " + prompt;
+  }
+
   await sendAndSpeak(ws, BookingState.PROVIDER_SELECTION, prompt, {
     providers: candidates,
     booking,
@@ -223,7 +287,7 @@ async function handleConfirmation(
     date: String(b["date"] ?? ""),
     time: String(b["time"] ?? ""),
     durationHours: Number(b["duration_hours"] ?? 2),
-    location: String(b["location"] ?? ""),
+    location: String(b["location"] ?? USER.address),
     hourlyRate: selectedProvider.hourly_rate,
     totalEstimate: selectedProvider.hourly_rate * Number(b["duration_hours"] ?? 2),
   });
@@ -236,6 +300,8 @@ async function handleConfirmation(
   const prompt = buildPrompt(BookingState.BOOKED, { bookingId: booking.id });
   await sendAndSpeak(ws, BookingState.BOOKED, prompt, { booking });
 }
+
+// ── Helpers ────────────────────────────────────────────────────────────────────
 
 function send(ws: WebSocket, payload: unknown): void {
   if (ws.readyState === WebSocket.OPEN) {

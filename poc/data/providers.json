@@ -1,11 +1,12 @@
 [
   {
     "id": "p001",
-    "name": "Maria's Sparkle Clean",
+    "name": "Sita Tamang",
+    "address": "House 12, Thamel-26, Kathmandu",
     "services": ["standard", "deep"],
-    "lat": -1.286389,
-    "lng": 36.817223,
-    "ward": "Westlands",
+    "lat": 27.7150,
+    "lng": 85.3123,
+    "ward": "Thamel",
     "rating": 4.9,
     "availability": [
       "2026-02-24T09:00", "2026-02-24T14:00",
@@ -14,15 +15,16 @@
       "2026-02-27T09:00", "2026-02-27T14:00",
       "2026-02-28T10:00", "2026-02-28T14:00"
     ],
-    "hourly_rate": 1500
+    "hourly_rate": 450
   },
   {
     "id": "p002",
-    "name": "Bright Homes Pro",
+    "name": "Maya Shrestha",
+    "address": "Flat 3A, Lazimpat Marg, Kathmandu",
     "services": ["standard", "deep", "move_in_out"],
-    "lat": -1.292066,
-    "lng": 36.821945,
-    "ward": "Kilimani",
+    "lat": 27.7220,
+    "lng": 85.3167,
+    "ward": "Lazimpat",
     "rating": 4.7,
     "availability": [
       "2026-02-24T08:00", "2026-02-24T13:00",
@@ -31,15 +33,16 @@
       "2026-02-27T08:00", "2026-02-27T13:00",
       "2026-02-28T08:00", "2026-02-28T13:00"
     ],
-    "hourly_rate": 1200
+    "hourly_rate": 380
   },
   {
     "id": "p003",
-    "name": "CleanWave Services",
+    "name": "Puja Maharjan",
+    "address": "23 Patan Dhoka Road, Lalitpur",
     "services": ["standard", "move_in_out"],
-    "lat": -1.300000,
-    "lng": 36.800000,
-    "ward": "Lavington",
+    "lat": 27.6644,
+    "lng": 85.3188,
+    "ward": "Lalitpur",
     "rating": 4.6,
     "availability": [
       "2026-02-24T10:00", "2026-02-24T15:00",
@@ -48,15 +51,16 @@
       "2026-02-27T10:00", "2026-02-27T15:00",
       "2026-02-28T10:00", "2026-02-28T15:00"
     ],
-    "hourly_rate": 1100
+    "hourly_rate": 320
   },
   {
     "id": "p004",
-    "name": "Fresh Start Cleaning",
+    "name": "Rina Gurung",
+    "address": "House 7, Maharajgunj-4, Kathmandu",
     "services": ["deep", "move_in_out"],
-    "lat": -1.270000,
-    "lng": 36.810000,
-    "ward": "Parklands",
+    "lat": 27.7368,
+    "lng": 85.3247,
+    "ward": "Maharajgunj",
     "rating": 4.8,
     "availability": [
       "2026-02-24T09:00", "2026-02-24T14:00",
@@ -65,15 +69,16 @@
       "2026-02-27T09:00", "2026-02-27T14:00",
       "2026-02-28T09:00", "2026-02-28T14:00"
     ],
-    "hourly_rate": 1400
+    "hourly_rate": 420
   },
   {
     "id": "p005",
-    "name": "TidySpace Nairobi",
+    "name": "Sunita Rai",
+    "address": "Flat 2C, Baneshwor-10, Kathmandu",
     "services": ["standard", "deep"],
-    "lat": -1.310000,
-    "lng": 36.830000,
-    "ward": "South B",
+    "lat": 27.6960,
+    "lng": 85.3415,
+    "ward": "Baneshwor",
     "rating": 4.5,
     "availability": [
       "2026-02-24T11:00", "2026-02-24T16:00",
@@ -82,15 +87,16 @@
       "2026-02-27T11:00", "2026-02-27T16:00",
       "2026-02-28T11:00", "2026-02-28T16:00"
     ],
-    "hourly_rate": 1000
+    "hourly_rate": 300
   },
   {
     "id": "p006",
-    "name": "HomePerfect Cleaners",
+    "name": "Kamala Thapa",
+    "address": "House 15, Baluwatar, Kathmandu",
     "services": ["standard", "deep", "move_in_out"],
-    "lat": -1.265000,
-    "lng": 36.815000,
-    "ward": "Highridge",
+    "lat": 27.7298,
+    "lng": 85.3289,
+    "ward": "Baluwatar",
     "rating": 4.8,
     "availability": [
       "2026-02-24T08:00", "2026-02-24T13:00",
@@ -99,15 +105,16 @@
       "2026-02-27T08:00", "2026-02-27T13:00",
       "2026-02-28T08:00", "2026-02-28T13:00"
     ],
-    "hourly_rate": 1350
+    "hourly_rate": 400
   },
   {
     "id": "p007",
-    "name": "Glimmer Maids",
+    "name": "Gita Lama",
+    "address": "House 9, Koteshwor-8, Kathmandu",
     "services": ["standard"],
-    "lat": -1.320000,
-    "lng": 36.845000,
-    "ward": "Embakasi",
+    "lat": 27.6827,
+    "lng": 85.3553,
+    "ward": "Koteshwor",
     "rating": 4.3,
     "availability": [
       "2026-02-24T09:00", "2026-02-24T14:00",
@@ -116,15 +123,16 @@
       "2026-02-27T09:00", "2026-02-27T14:00",
       "2026-02-28T09:00", "2026-02-28T14:00"
     ],
-    "hourly_rate": 900
+    "hourly_rate": 270
   },
   {
     "id": "p008",
-    "name": "Crystal Clear Kenya",
+    "name": "Nirmala Sherpa",
+    "address": "House 4, Budhanilkantha-5, Kathmandu",
     "services": ["deep", "move_in_out"],
-    "lat": -1.256000,
-    "lng": 36.805000,
-    "ward": "Spring Valley",
+    "lat": 27.7920,
+    "lng": 85.3616,
+    "ward": "Budhanilkantha",
     "rating": 4.9,
     "availability": [
       "2026-02-24T10:00", "2026-02-24T15:00",
@@ -133,15 +141,16 @@
       "2026-02-27T10:00", "2026-02-27T15:00",
       "2026-02-28T10:00", "2026-02-28T15:00"
     ],
-    "hourly_rate": 1600
+    "hourly_rate": 480
   },
   {
     "id": "p009",
-    "name": "ProClean Elite",
+    "name": "Rita Magar",
+    "address": "House 18, Chabahil-7, Kathmandu",
     "services": ["standard", "deep"],
-    "lat": -1.315000,
-    "lng": 36.855000,
-    "ward": "Donholm",
+    "lat": 27.7168,
+    "lng": 85.3547,
+    "ward": "Chabahil",
     "rating": 4.4,
     "availability": [
       "2026-02-24T09:00", "2026-02-24T14:00",
@@ -150,15 +159,16 @@
       "2026-02-27T09:00", "2026-02-27T14:00",
       "2026-02-28T09:00", "2026-02-28T14:00"
     ],
-    "hourly_rate": 1050
+    "hourly_rate": 310
   },
   {
     "id": "p010",
-    "name": "Neat Freaks NBO",
+    "name": "Sarita Limbu",
+    "address": "Flat 1B, Boudha Sadak, Kathmandu",
     "services": ["standard", "deep", "move_in_out"],
-    "lat": -1.278000,
-    "lng": 36.798000,
-    "ward": "Loresho",
+    "lat": 27.7215,
+    "lng": 85.3621,
+    "ward": "Boudha",
     "rating": 4.7,
     "availability": [
       "2026-02-24T08:00", "2026-02-24T13:00",
@@ -167,15 +177,16 @@
       "2026-02-27T08:00", "2026-02-27T13:00",
       "2026-02-28T08:00", "2026-02-28T13:00"
     ],
-    "hourly_rate": 1250
+    "hourly_rate": 370
   },
   {
     "id": "p011",
-    "name": "ShineBright Cleaners",
+    "name": "Bimala Karki",
+    "address": "House 31, Naxal, Kathmandu",
     "services": ["standard"],
-    "lat": -1.295000,
-    "lng": 36.860000,
-    "ward": "Buruburu",
+    "lat": 27.7145,
+    "lng": 85.3289,
+    "ward": "Naxal",
     "rating": 4.2,
     "availability": [
       "2026-02-24T10:00", "2026-02-24T15:00",
@@ -184,15 +195,16 @@
       "2026-02-27T10:00", "2026-02-27T15:00",
       "2026-02-28T10:00", "2026-02-28T15:00"
     ],
-    "hourly_rate": 850
+    "hourly_rate": 260
   },
   {
     "id": "p012",
-    "name": "PureHome Services",
+    "name": "Sangita Pandey",
+    "address": "Flat 5A, Durbarmarg, Kathmandu",
     "services": ["deep", "move_in_out"],
-    "lat": -1.245000,
-    "lng": 36.825000,
-    "ward": "Muthaiga",
+    "lat": 27.7047,
+    "lng": 85.3147,
+    "ward": "Durbarmarg",
     "rating": 4.8,
     "availability": [
       "2026-02-24T09:00", "2026-02-24T14:00",
@@ -201,15 +213,16 @@
       "2026-02-27T09:00", "2026-02-27T14:00",
       "2026-02-28T09:00", "2026-02-28T14:00"
     ],
-    "hourly_rate": 1550
+    "hourly_rate": 460
   },
   {
     "id": "p013",
-    "name": "Happy Homes Cleaning",
+    "name": "Anita Tamang",
+    "address": "House 6, Kirtipur-3, Kathmandu",
     "services": ["standard", "deep"],
-    "lat": -1.305000,
-    "lng": 36.808000,
-    "ward": "Karen",
+    "lat": 27.6782,
+    "lng": 85.2796,
+    "ward": "Kirtipur",
     "rating": 4.6,
     "availability": [
       "2026-02-24T11:00", "2026-02-24T16:00",
@@ -218,15 +231,16 @@
       "2026-02-27T11:00", "2026-02-27T16:00",
       "2026-02-28T11:00", "2026-02-28T16:00"
     ],
-    "hourly_rate": 1300
+    "hourly_rate": 340
   },
   {
     "id": "p014",
-    "name": "Swift Cleaners Ltd",
+    "name": "Rekha Adhikari",
+    "address": "Flat 8D, New Baneshwor, Kathmandu",
     "services": ["standard", "move_in_out"],
-    "lat": -1.288000,
-    "lng": 36.835000,
-    "ward": "Upper Hill",
+    "lat": 27.6950,
+    "lng": 85.3429,
+    "ward": "New Baneshwor",
     "rating": 4.5,
     "availability": [
       "2026-02-24T08:00", "2026-02-24T13:00",
@@ -235,15 +249,16 @@
       "2026-02-27T08:00", "2026-02-27T13:00",
       "2026-02-28T08:00", "2026-02-28T13:00"
     ],
-    "hourly_rate": 1150
+    "hourly_rate": 330
   },
   {
     "id": "p015",
-    "name": "ZenClean Professionals",
+    "name": "Kopila Rai",
+    "address": "House 22, Sanepa, Lalitpur",
     "services": ["standard", "deep", "move_in_out"],
-    "lat": -1.282000,
-    "lng": 36.812000,
-    "ward": "Kileleshwa",
+    "lat": 27.6787,
+    "lng": 85.3122,
+    "ward": "Sanepa",
     "rating": 4.9,
     "availability": [
       "2026-02-24T09:00", "2026-02-24T14:00",
@@ -252,15 +267,16 @@
       "2026-02-27T09:00", "2026-02-27T14:00",
       "2026-02-28T09:00", "2026-02-28T14:00"
     ],
-    "hourly_rate": 1450
+    "hourly_rate": 430
   },
   {
     "id": "p016",
-    "name": "Dust2Shine NBO",
+    "name": "Mina Gurung",
+    "address": "House 11, Kalanki Chowk, Kathmandu",
     "services": ["standard", "deep"],
-    "lat": -1.330000,
-    "lng": 36.840000,
-    "ward": "South C",
+    "lat": 27.6956,
+    "lng": 85.2842,
+    "ward": "Kalanki",
     "rating": 4.4,
     "availability": [
       "2026-02-24T10:00", "2026-02-24T15:00",
@@ -269,15 +285,16 @@
       "2026-02-27T10:00", "2026-02-27T15:00",
       "2026-02-28T10:00", "2026-02-28T15:00"
     ],
-    "hourly_rate": 1050
+    "hourly_rate": 290
   },
   {
     "id": "p017",
-    "name": "CleanKraft Kenya",
+    "name": "Mandira Thapa",
+    "address": "House 5, Gongabu-6, Kathmandu",
     "services": ["deep", "move_in_out"],
-    "lat": -1.260000,
-    "lng": 36.795000,
-    "ward": "Runda",
+    "lat": 27.7467,
+    "lng": 85.3114,
+    "ward": "Gongabu",
     "rating": 4.7,
     "availability": [
       "2026-02-24T09:00", "2026-02-24T14:00",
@@ -286,15 +303,16 @@
       "2026-02-27T09:00", "2026-02-27T14:00",
       "2026-02-28T09:00", "2026-02-28T14:00"
     ],
-    "hourly_rate": 1500
+    "hourly_rate": 410
   },
   {
     "id": "p018",
-    "name": "Spotless Solutions",
+    "name": "Laxmi Shrestha",
+    "address": "House 8, Jorpati-4, Kathmandu",
     "services": ["standard"],
-    "lat": -1.340000,
-    "lng": 36.850000,
-    "ward": "Umoja",
+    "lat": 27.7347,
+    "lng": 85.3726,
+    "ward": "Jorpati",
     "rating": 4.1,
     "availability": [
       "2026-02-24T11:00", "2026-02-24T16:00",
@@ -303,15 +321,16 @@
       "2026-02-27T11:00", "2026-02-27T16:00",
       "2026-02-28T11:00", "2026-02-28T16:00"
     ],
-    "hourly_rate": 800
+    "hourly_rate": 250
   },
   {
     "id": "p019",
-    "name": "Premier Clean Nairobi",
+    "name": "Sabina Maharjan",
+    "address": "Flat 2A, Hattisar, Kathmandu",
     "services": ["standard", "deep", "move_in_out"],
-    "lat": -1.275000,
-    "lng": 36.820000,
-    "ward": "Riverside",
+    "lat": 27.7085,
+    "lng": 85.3294,
+    "ward": "Hattisar",
     "rating": 4.8,
     "availability": [
       "2026-02-24T08:00", "2026-02-24T13:00",
@@ -320,15 +339,16 @@
       "2026-02-27T08:00", "2026-02-27T13:00",
       "2026-02-28T08:00", "2026-02-28T13:00"
     ],
-    "hourly_rate": 1400
+    "hourly_rate": 440
   },
   {
     "id": "p020",
-    "name": "GreenClean Kenya",
+    "name": "Tara Bista",
+    "address": "House 17, Ekantakuna, Lalitpur",
     "services": ["standard", "deep"],
-    "lat": -1.298000,
-    "lng": 36.802000,
-    "ward": "Langata",
+    "lat": 27.6656,
+    "lng": 85.3197,
+    "ward": "Ekantakuna",
     "rating": 4.6,
     "availability": [
       "2026-02-24T09:00", "2026-02-24T14:00",
@@ -337,15 +357,16 @@
       "2026-02-27T09:00", "2026-02-27T14:00",
       "2026-02-28T09:00", "2026-02-28T14:00"
     ],
-    "hourly_rate": 1200
+    "hourly_rate": 350
   },
   {
     "id": "p021",
-    "name": "MagiClean Pro",
+    "name": "Durga Tamang",
+    "address": "House 3, Suryamadhi-5, Bhaktapur",
     "services": ["standard", "move_in_out"],
-    "lat": -1.355000,
-    "lng": 36.870000,
-    "ward": "Kayole",
+    "lat": 27.6710,
+    "lng": 85.4298,
+    "ward": "Bhaktapur",
     "rating": 4.3,
     "availability": [
       "2026-02-24T10:00", "2026-02-24T15:00",
@@ -354,15 +375,16 @@
       "2026-02-27T10:00", "2026-02-27T15:00",
       "2026-02-28T10:00", "2026-02-28T15:00"
     ],
-    "hourly_rate": 950
+    "hourly_rate": 280
   },
   {
     "id": "p022",
-    "name": "TopShine Cleaners",
+    "name": "Kavita Limbu",
+    "address": "House 9, Jhamsikhel, Lalitpur",
     "services": ["deep"],
-    "lat": -1.248000,
-    "lng": 36.838000,
-    "ward": "Gigiri",
+    "lat": 27.6847,
+    "lng": 85.3197,
+    "ward": "Jhamsikhel",
     "rating": 4.9,
     "availability": [
       "2026-02-24T09:00", "2026-02-24T14:00",
@@ -371,15 +393,16 @@
       "2026-02-27T09:00", "2026-02-27T14:00",
       "2026-02-28T09:00", "2026-02-28T14:00"
     ],
-    "hourly_rate": 1700
+    "hourly_rate": 500
   },
   {
     "id": "p023",
-    "name": "HomeCare Professionals",
+    "name": "Indira Magar",
+    "address": "Flat 6C, Putalisadak, Kathmandu",
     "services": ["standard", "deep", "move_in_out"],
-    "lat": -1.308000,
-    "lng": 36.818000,
-    "ward": "Ngumo",
+    "lat": 27.7035,
+    "lng": 85.3285,
+    "ward": "Putalisadak",
     "rating": 4.5,
     "availability": [
       "2026-02-24T08:00", "2026-02-24T13:00",
@@ -388,15 +411,16 @@
       "2026-02-27T08:00", "2026-02-27T13:00",
       "2026-02-28T08:00", "2026-02-28T13:00"
     ],
-    "hourly_rate": 1250
+    "hourly_rate": 360
   },
   {
     "id": "p024",
-    "name": "AceClean Ltd",
+    "name": "Shova Karki",
+    "address": "House 14, Kapan-4, Kathmandu",
     "services": ["standard"],
-    "lat": -1.325000,
-    "lng": 36.862000,
-    "ward": "Tassia",
+    "lat": 27.7534,
+    "lng": 85.3654,
+    "ward": "Kapan",
     "rating": 4.2,
     "availability": [
       "2026-02-24T11:00", "2026-02-24T16:00",
@@ -405,15 +429,16 @@
       "2026-02-27T11:00", "2026-02-27T16:00",
       "2026-02-28T11:00", "2026-02-28T16:00"
     ],
-    "hourly_rate": 875
+    "hourly_rate": 255
   },
   {
     "id": "p025",
-    "name": "VIP Clean Nairobi",
+    "name": "Radha Sherpa",
+    "address": "House 20, Kupondole, Lalitpur",
     "services": ["standard", "deep", "move_in_out"],
-    "lat": -1.272000,
-    "lng": 36.828000,
-    "ward": "Westlands",
+    "lat": 27.6887,
+    "lng": 85.3162,
+    "ward": "Kupondole",
     "rating": 4.8,
     "availability": [
       "2026-02-24T09:00", "2026-02-24T14:00",
@@ -422,6 +447,6 @@
       "2026-02-27T09:00", "2026-02-27T14:00",
       "2026-02-28T09:00", "2026-02-28T14:00"
     ],
-    "hourly_rate": 1480
+    "hourly_rate": 470
   }
 ]

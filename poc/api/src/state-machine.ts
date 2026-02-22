@@ -1,16 +1,18 @@
 /**
- * 6-state linear booking state machine.
+ * 7-state linear booking state machine.
  *
  * States progress linearly:
- *   IDLE → EXTRACTING → CLARIFYING* → PROVIDER_SELECTION → CONFIRMING → BOOKED
+ *   IDLE → EXTRACTING → CLARIFYING* → ADDRESS_CONFIRM → PROVIDER_SELECTION → CONFIRMING → BOOKED
  *
  * CLARIFYING is re-entered as many times as needed until all fields are present.
+ * ADDRESS_CONFIRM presents the user's registered address for confirmation before matching.
  */
 
 export enum BookingState {
   IDLE = "IDLE",
   EXTRACTING = "EXTRACTING",
   CLARIFYING = "CLARIFYING",
+  ADDRESS_CONFIRM = "ADDRESS_CONFIRM",
   PROVIDER_SELECTION = "PROVIDER_SELECTION",
   CONFIRMING = "CONFIRMING",
   BOOKED = "BOOKED",
@@ -19,6 +21,7 @@ export enum BookingState {
 export type StateEvent =
   | { type: "USER_MESSAGE" }
   | { type: "EXTRACTION_DONE"; missingFields: string[] }
+  | { type: "ADDRESS_CONFIRMED" }
   | { type: "PROVIDER_SELECTED" }
   | { type: "CONFIRMED" }
   | { type: "BARGE_IN" };
@@ -32,7 +35,7 @@ export function transition(state: BookingState, event: StateEvent): BookingState
     case BookingState.EXTRACTING:
       if (event.type === "EXTRACTION_DONE") {
         return event.missingFields.length === 0
-          ? BookingState.PROVIDER_SELECTION
+          ? BookingState.ADDRESS_CONFIRM
           : BookingState.CLARIFYING;
       }
       break;
@@ -40,10 +43,15 @@ export function transition(state: BookingState, event: StateEvent): BookingState
     case BookingState.CLARIFYING:
       if (event.type === "EXTRACTION_DONE") {
         return event.missingFields.length === 0
-          ? BookingState.PROVIDER_SELECTION
+          ? BookingState.ADDRESS_CONFIRM
           : BookingState.CLARIFYING; // stay until complete
       }
       if (event.type === "BARGE_IN") return BookingState.CLARIFYING;
+      break;
+
+    case BookingState.ADDRESS_CONFIRM:
+      if (event.type === "ADDRESS_CONFIRMED") return BookingState.PROVIDER_SELECTION;
+      if (event.type === "BARGE_IN") return BookingState.ADDRESS_CONFIRM;
       break;
 
     case BookingState.PROVIDER_SELECTION:

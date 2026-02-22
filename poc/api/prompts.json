@@ -5,9 +5,12 @@
 
   "clarifying_fallback": "I need a few more details. What type of cleaning, and what date and time works for you?",
 
-  "no_providers": "I'm sorry, I couldn't find any available cleaners matching your request. Could you try a different date or service type?",
+  "address_confirm": "I'll look for cleaners near your registered address: {address}. Does that sound right?",
+  "address_confirm_proceed": "No problem, I'll use your registered address at {address} for now.",
 
-  "provider_intro": "I found {count} cleaners.",
+  "no_providers": "I'm sorry, I couldn't find any available cleaners near you matching your request. Could you try a different date or service type?",
+
+  "provider_intro": "I found {count} cleaners near you.",
   "provider_option": "Option {index}: {name}, rated {rating} stars, {distance} kilometres away, available at {time}, {rate} per hour.",
   "provider_outro": "Which one would you like?",
 
@@ -25,6 +28,6 @@
   "provider_error": "Something went wrong. Let me show you the options again.",
   "confirm_retry": "Please say 'confirm' to complete the booking, or say 'go back' to choose a different cleaner.",
 
-  "currency": "KES",
-  "locale": "en-KE"
+  "currency": "NPR",
+  "locale": "en-NP"
 }

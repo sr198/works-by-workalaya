@@ -13,6 +13,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export interface Provider {
   id: string;
   name: string;
+  address: string;
   services: string[];
   lat: number;
   lng: number;
@@ -85,18 +86,18 @@ export interface MatchCriteria {
   date: string;
   time: string;
   durationHours: number;
-  /** Optional user lat/lng for distance calculation. Falls back to Nairobi CBD. */
+  /** Optional user lat/lng for distance calculation. Falls back to Kathmandu CBD. */
   userLat?: number;
   userLng?: number;
 }
 
-const NAIROBI_CBD_LAT = -1.286389;
-const NAIROBI_CBD_LNG = 36.817223;
+const KATHMANDU_CBD_LAT = 27.7172;
+const KATHMANDU_CBD_LNG = 85.3240;
 
 export function matchProviders(criteria: MatchCriteria): MatchedProvider[] {
   const providers = getProviders();
-  const userLat = criteria.userLat ?? NAIROBI_CBD_LAT;
-  const userLng = criteria.userLng ?? NAIROBI_CBD_LNG;
+  const userLat = criteria.userLat ?? KATHMANDU_CBD_LAT;
+  const userLng = criteria.userLng ?? KATHMANDU_CBD_LNG;
 
   const results: MatchedProvider[] = [];
 

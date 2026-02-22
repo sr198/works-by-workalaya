@@ -12,7 +12,6 @@ extraction:
     - date
     - time
     - duration_hours
-    - location
 
   # Sent as the "system" message to the LLM on every extraction call.
   # {today} is replaced with today's date at call time (e.g. "2026-02-21, Saturday").
@@ -41,7 +40,6 @@ extraction:
     date: "What date would you like the cleaning?"
     time: "What time works best for you?"
     duration_hours: "How many hours do you estimate the cleaning will take?"
-    location: "What's the address of the property?"
 
   # Joining string between multiple clarification questions in one turn.
   clarification_joiner: " Also, "

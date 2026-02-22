@@ -11,6 +11,8 @@ import { config } from "./config.js";
 interface PromptsShape {
   extracting: string;
   clarifying_fallback: string;
+  address_confirm: string;
+  address_confirm_proceed: string;
   no_providers: string;
   provider_intro: string;
   provider_option: string;
@@ -47,6 +49,8 @@ function t(template: string, vars: Record<string, string | number>): string {
 export const prompts = {
   extracting: () => _p.extracting,
   clarifyingFallback: () => _p.clarifying_fallback,
+  addressConfirm: (address: string) => t(_p.address_confirm, { address }),
+  addressConfirmProceed: (address: string) => t(_p.address_confirm_proceed, { address }),
   bargeIn: () => _p.barge_in,
   sessionLimit: () => _p.session_limit,
   alreadyBooked: () => _p.already_booked,

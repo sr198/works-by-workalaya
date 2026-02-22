@@ -2,7 +2,7 @@
  * Main booking screen — orchestrates the entire voice-first UX.
  *
  * Flow:
- *  1. User holds MicButton → whisper.rn records
+ *  1. User holds MicButton → speech.rn records
  *  2. Release → transcript sent via WebSocket
  *  3. Backend responds with STATE_UPDATE + MP3 audio
  *  4. TTS plays; user can barge-in by speaking (VAD fires → stopAudio + new recording)
@@ -18,7 +18,7 @@ import {
   Platform,
 } from "react-native";
 import { useBookingFlow } from "../hooks/useBookingFlow";
-import { useWhisper } from "../hooks/useWhisper";
+import { useSpeechInput } from "../hooks/useSpeechInput";
 import { MicButton } from "../components/MicButton";
 import { TranscriptDisplay } from "../components/TranscriptDisplay";
 import { ProviderList } from "../components/ProviderList";
@@ -29,7 +29,7 @@ export default function BookingScreen() {
   const flow = useBookingFlow();
   const [micState, setMicState] = useState<"idle" | "listening" | "processing">("idle");
 
-  const whisper = useWhisper(async (text: string) => {
+  const speech = useSpeechInput(async (text: string) => {
     // Called when user stops recording and transcript is ready
     setMicState("processing");
     flow.sendTranscript(text);
@@ -46,14 +46,14 @@ export default function BookingScreen() {
     }
 
     setMicState("listening");
-    await whisper.start();
-  }, [micState, flow, whisper]);
+    await speech.start();
+  }, [micState, flow, speech]);
 
   const handlePressOut = useCallback(async () => {
     if (micState !== "listening") return;
-    await whisper.stop();
+    await speech.stop();
     // micState will be set to "processing" by onTranscript callback above
-  }, [micState, whisper]);
+  }, [micState, speech]);
 
   const handleProviderSelect = useCallback(
     (provider: ProviderSummary) => {
@@ -63,7 +63,7 @@ export default function BookingScreen() {
     [flow],
   );
 
-  const isReady = whisper.status === "ready";
+  const isReady = speech.status === "ready";
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -75,10 +75,10 @@ export default function BookingScreen() {
         </View>
 
         {/* Download progress */}
-        {whisper.status === "downloading" && (
+        {speech.status === "downloading" && (
           <View style={styles.progressContainer}>
             <Text style={styles.progressText}>
-              Downloading voice model… {Math.round(whisper.downloadProgress * 100)}%
+              Downloading voice model… {Math.round(speech.downloadProgress * 100)}%
             </Text>
           </View>
         )}
@@ -90,8 +90,8 @@ export default function BookingScreen() {
 
         {/* Live transcript */}
         <TranscriptDisplay
-          transcript={whisper.transcript}
-          isListening={whisper.isListening}
+          transcript={speech.transcript}
+          isListening={speech.isListening}
         />
 
         {/* Provider list */}
@@ -129,9 +129,9 @@ export default function BookingScreen() {
           onPressOut={handlePressOut}
           disabled={!isReady || flow.bookingState === "BOOKED"}
         />
-        {!isReady && whisper.status !== "downloading" && (
+        {!isReady && speech.status !== "downloading" && (
           <Text style={styles.loadingText}>
-            {whisper.status === "loading" ? "Loading voice model…" : "Initialising…"}
+            {speech.status === "loading" ? "Loading voice model…" : "Initialising…"}
           </Text>
         )}
       </View>

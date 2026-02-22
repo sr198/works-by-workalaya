@@ -8,3 +8,25 @@ coverage/
 .vscode/
 .idea/
 *.tsbuildinfo
+
+
+#Python related
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# macOS related
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Expo related
+.expo/
+.expo-shared/

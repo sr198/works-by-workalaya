@@ -13,6 +13,7 @@ export type BookingFlowState =
   | "IDLE"
   | "EXTRACTING"
   | "CLARIFYING"
+  | "ADDRESS_CONFIRM"
   | "PROVIDER_SELECTION"
   | "CONFIRMING"
   | "BOOKED";

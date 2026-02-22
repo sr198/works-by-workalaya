@@ -18,7 +18,7 @@ export const config = {
   port: Math.trunc(num("PORT", 3001)),
 
   ai: {
-    baseUrl: str("AI_BASE_URL", "http://localhost:8000"),
+    baseUrl: str("AI_BASE_URL", "http://localhost:8080"),
   },
 
   tts: {
@@ -31,6 +31,6 @@ export const config = {
 
   prompts: {
     /** Path to the JSON prompts file. Defaults to prompts.json next to this file. */
-    file: str("PROMPTS_FILE", new URL("../../prompts.json", import.meta.url).pathname),
+    file: str("PROMPTS_FILE", new URL("../prompts.json", import.meta.url).pathname),
   },
 } as const;
