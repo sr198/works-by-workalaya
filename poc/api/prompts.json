@@ -1,0 +1,33 @@
+{
+  "_comment": "Response-builder templates for the Node.js orchestrator. Edit freely — no redeploy needed.",
+
+  "extracting": "Got it, let me find the details for your booking.",
+
+  "clarifying_fallback": "I need a few more details. What type of cleaning, and what date and time works for you?",
+
+  "address_confirm": "I'll look for cleaners near your registered address: {address}. Does that sound right?",
+  "address_confirm_proceed": "No problem, I'll use your registered address at {address} for now.",
+
+  "no_providers": "I'm sorry, I couldn't find any available cleaners near you matching your request. Could you try a different date or service type?",
+
+  "provider_intro": "I found {count} cleaners near you.",
+  "provider_option": "Option {index}: {name}, rated {rating} stars, {distance} kilometres away, available at {time}, {rate} per hour.",
+  "provider_outro": "Which one would you like?",
+
+  "confirming_fallback": "Please confirm your booking.",
+  "confirming": "Great choice! To confirm: {providerName} will do a {service} at {location} on {date} at {time} for {duration} hours. Total estimate: {total}. Say confirm to book.",
+
+  "booked": "Your booking is confirmed! Booking ID {bookingId}. You'll receive a confirmation shortly. Is there anything else?",
+
+  "idle": "I'm ready to help you book a cleaner. What do you need?",
+  "barge_in": "Go ahead, I'm listening.",
+  "session_limit": "Session limit reached. Starting over.",
+  "already_booked": "Your booking is already confirmed! Say 'new booking' to start again.",
+  "provider_not_found": "I couldn't find that provider. Please try again.",
+  "provider_retry": "Sorry, I didn't catch that.",
+  "provider_error": "Something went wrong. Let me show you the options again.",
+  "confirm_retry": "Please say 'confirm' to complete the booking, or say 'go back' to choose a different cleaner.",
+
+  "currency": "NPR",
+  "locale": "en-NP"
+}

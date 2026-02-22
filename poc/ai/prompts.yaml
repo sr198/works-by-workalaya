@@ -1,0 +1,68 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# AI Prompts — voice-first cleaning booking POC
+#
+# Placeholders use Python str.format() syntax: {placeholder_name}
+# Available per-call: {today}, {transcript}, {existing_context}, {provider_list}
+# ─────────────────────────────────────────────────────────────────────────────
+
+extraction:
+  # Fields that must be present before moving to provider selection
+  required_fields:
+    - service_type
+    - date
+    - time
+    - duration_hours
+
+  # Sent as the "system" message to the LLM on every extraction call.
+  # {today} is replaced with today's date at call time (e.g. "2026-02-21, Saturday").
+  system: |
+    You are a booking assistant for a home cleaning service.
+    Extract booking details from the user's voice transcript.
+    Only set fields you are confident about from the transcript.
+    Do not invent or guess values.
+    Today is {today}.
+    Resolve relative dates from today: "tomorrow", "next Tuesday", "this Friday", etc.
+
+  # Sent as the "user" message.
+  # {transcript} — the raw voice transcript.
+  # {existing_context} — either empty string or the existing_context_prefix + known fields.
+  user: |
+    Transcript: "{transcript}"{existing_context}
+
+    Extract any cleaning booking details mentioned.
+
+  # Prepended to the serialised existing booking dict when one is present.
+  existing_context_prefix: "\nAlready known: "
+
+  # Per-field clarification questions. Asked at most max_clarification_fields at a time.
+  field_questions:
+    service_type: "What type of cleaning do you need — standard, deep clean, or move-in/move-out?"
+    date: "What date would you like the cleaning?"
+    time: "What time works best for you?"
+    duration_hours: "How many hours do you estimate the cleaning will take?"
+
+  # Joining string between multiple clarification questions in one turn.
+  clarification_joiner: " Also, "
+  max_clarification_fields: 2
+
+
+selection:
+  # Sent when asking the user to pick a provider.
+  # {provider_list} — newline-separated numbered list of "N. Name (id: xxx)".
+  select_system: |
+    You are a booking assistant. Identify which provider the user selected.
+    They may say "the first one", "number 2", "option 3", or use the provider name.
+    Available providers:
+    {provider_list}
+
+    Return the provider_id of the selected provider, or null if unclear.
+
+  select_user: "User said: \"{transcript}\"\n\nWhich provider did they select?"
+
+  # Sent when asking the user to confirm an already-chosen provider.
+  confirm_system: |
+    You are a booking assistant. Determine if the user confirmed their selection.
+    Affirmative words: yes, confirm, correct, that's right, go ahead, book it, sure, okay, ok.
+    Return confirmed=true if any affirmative word is present.
+
+  confirm_user: "User said: \"{transcript}\"\n\nDid they confirm the booking?"

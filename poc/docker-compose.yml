@@ -1,0 +1,28 @@
+services:
+  kokoro:
+    image: ghcr.io/remsky/kokoro-fastapi-cpu:latest
+    ports:
+      - "8880:8880"
+    environment:
+      - KOKORO_VOICE=af_heart
+      - KOKORO_SPEED=1.0
+    restart: unless-stopped
+
+  # GPU variant — requires nvidia-container-toolkit properly configured:
+  #   sudo nvidia-ctk runtime configure --runtime=docker
+  #   sudo systemctl restart docker
+  # kokoro-gpu:
+  #   image: ghcr.io/remsky/kokoro-fastapi-gpu:latest
+  #   ports:
+  #     - "8880:8880"
+  #   environment:
+  #     - KOKORO_VOICE=af_heart
+  #     - KOKORO_SPEED=1.0
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  #   restart: unless-stopped
