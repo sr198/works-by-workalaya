@@ -30,3 +30,8 @@ venv.bak/
 # Expo related
 .expo/
 .expo-shared/
+
+
+# Miscellaneous
+TTSIndicF5/
+poc/ai/models
